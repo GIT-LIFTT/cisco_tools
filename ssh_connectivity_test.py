@@ -43,7 +43,7 @@ NXOS14 = {
 'username': 'admin',
 'password': 'admin',
  }
-# put the dictionarys into a list 
+# put the dictionarys into a list
 host_list = [NXOS9,NXOS10,NXOS11,NXOS12,NXOS13,NXOS14]
 
 # for each dictionary within the list
