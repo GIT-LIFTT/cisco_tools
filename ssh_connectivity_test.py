@@ -1,7 +1,7 @@
 from netmiko import Netmiko
 import time
 
-
+# define hosts in the form of dictionarys as required by netmiko
 NXOS9 = {
 'device_type': 'cisco_nxos',
 'host': '200.100.100.8',
@@ -43,24 +43,15 @@ NXOS14 = {
 'username': 'admin',
 'password': 'admin',
  }
-
-comamnds = ["copy run start"]
-comamnds2 = ["show hostname"]
-
-
+# put the dictionarys into a list 
 host_list = [NXOS9,NXOS10,NXOS11,NXOS12,NXOS13,NXOS14]
-for i in host_list:
-    net_connect = Netmiko(**i)
-    print()
-    print(net_connect.find_prompt())
-    hostname = net_connect.send_command("show hostname")
-    net_connect.send_command('terminal length 0')
-    hostname = hostname.strip()
-    print(hostname)
-    #print(output)
 
-    output = net_connect.send_config_set(comamnds)
-    time.sleep(2)
-    f = open(hostname+'.txt','w')
-    f.write(output)
-    f.close()
+# for each dictionary within the list
+for i in host_list:
+ try:
+    #try to conenct via ssh
+    net_connect = Netmiko(**i)
+    print("ssh conencted to "+i['host'])
+ except:
+    #if the connection fails print connect failed
+    print ("ssh failed to "+i['host'])
