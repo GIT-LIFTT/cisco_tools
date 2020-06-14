@@ -2,49 +2,77 @@ from netmiko import Netmiko
 import time
 
 # define hosts in the form of dictionarys as required by netmiko
-NXOS9 = {
-'device_type': 'cisco_nxos',
+FW01 = {
+'device_type': 'cisco_asa',
 'host': '200.100.100.8',
+'username': 'cisco',
+'password': 'cisco',
+ }
+
+IOSL2_1 = {
+'device_type': 'cisco_ios',
+'host': '200.100.100.1',
 'username': 'admin',
 'password': 'admin',
  }
 
-NXOS10 = {
+IOSL2_2 = {
+'device_type': 'cisco_ios',
+'host': '200.100.100.7',
+'username': 'admin',
+'password': 'admin',
+ }
+
+FW01 = {
+'device_type': 'cisco_asa',
+'host': '200.100.100.8',
+'username': 'cisco',
+'password': 'cisco',
+ }
+
+NXOS05 = {
 'device_type': 'cisco_nxos',
 'host': '200.100.100.6',
 'username': 'admin',
 'password': 'admin',
  }
 
-NXOS11 = {
+NXOS06 = {
 'device_type': 'cisco_nxos',
 'host': '200.100.100.5',
 'username': 'admin',
 'password': 'admin',
  }
 
-NXOS12 = {
+NXOS07 = {
 'device_type': 'cisco_nxos',
 'host': '200.100.100.3',
 'username': 'admin',
 'password': 'admin',
  }
 
-NXOS13 = {
+NXOS08 = {
 'device_type': 'cisco_nxos',
 'host': '200.100.100.4',
 'username': 'admin',
 'password': 'admin',
  }
 
-NXOS14 = {
-'device_type': 'cisco_nxos',
-'host': '200.100.100.7',
+CORE_ISP = {
+'device_type': 'cisco_ios',
+'host': '200.100.100.4',
 'username': 'admin',
 'password': 'admin',
  }
+
+FW02 = {
+'device_type': 'cisco_asa',
+'host': '200.100.100.9',
+'username': 'cisco',
+'password': 'cisco',
+ }
 # put the dictionarys into a list
-host_list = [NXOS9,NXOS10,NXOS11,NXOS12,NXOS13,NXOS14]
+host_list = [FW01,FW02,NXOS05,NXOS06,NXOS07,NXOS08,CORE_ISP,IOSL2_1,IOSL2_2]
 
 # for each dictionary within the list
 for i in host_list:
